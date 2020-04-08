@@ -1,0 +1,164 @@
+
+
+
+
+Helemaal bovenin:
+using HidLibrary;
+
+Bovenin:
+        private HidDevice[]       HidDeviceList;
+        private HidDevice         SelectedHidDevice;
+        public delegate void      ReadHandlerDelegate(HidReport report);
+
+
+
+Ergens in de source:
+        if (ConnectEventExchanger())
+
+Dat is deze methode:
+        // -----------------------------------------------------------------------------------------------
+        private bool ConnectEventExchanger()
+        {
+            byte[] man;
+            byte[] prod;
+
+            edtHidDevice.Text  = "Connecting to EventExchanger..";
+            edtHidDevice1.Text = "Connecting to EventExchanger..";
+            Application.DoEvents();
+
+            HidDeviceList = HidDevices.Enumerate().ToArray();
+
+            int selected = -1;
+            for (int i = 0; i < HidDeviceList.Length; i++)
+            {
+                HidDeviceList[i].ReadManufacturer(out man);
+                HidDeviceList[i].ReadProduct(out prod);
+
+                // look for "Instrumentatiedienst" and "EventExchanger"
+                if (MakeString(man).IndexOf("Instrumentatiedienst") != -1 &&
+                    MakeString(prod).IndexOf("EventExchanger") != -1)
+                {
+                    selected = i;
+                    edtHidDevice.Text = MakeString(man) + " " + MakeString(prod);
+                    edtHidDevice1.Text = edtHidDevice.Text;
+                    Application.DoEvents();
+                    break;
+                }
+            }
+            if (selected != -1)
+                SelectedHidDevice = HidDeviceList[selected];
+            else
+            {
+                IDlib.ShowError("Could not find EventExchanger!");
+                return false;
+            }
+
+            iEvent = 0;
+            return true;
+        }
+
+Bij knopje om te starten:
+        // -----------------------------------------------------------------------------------------------
+        private void btnHidStart_Click(object sender, EventArgs e)
+        {
+            if (SelectedHidDevice != null)
+            {
+                SelectedHidDevice.OpenDevice();
+                SelectedHidDevice.MonitorDeviceEvents = true;
+
+                SelectedHidDevice.ReadReport(ReadProcess);
+                btnHidStart.Enabled = false;
+            }
+        }
+
+        // ------------------------------------------------------------------------
+        private void ReadProcess(HidReport report)
+        {
+            BeginInvoke(new ReadHandlerDelegate(ReadHandler), new object[] { report });
+        }
+
+        // ------------------------------------------------------------------------
+        private void ReadHandler(HidReport report)
+        {
+            int thisEvent;
+            int thisCode;
+            int prevCode;
+            int eventCode = 0;
+
+            thisEvent = (int)report.Data[0];
+
+            // something changed?
+            if (thisEvent != previousEvent)
+            {
+                StoreEventCode(thisEvent);
+                edtCode.Text  = thisEvent.ToString();
+                edtCode1.Text = thisEvent.ToString();
+
+                previousEvent = thisEvent;          // remember event
+            }
+            SelectedHidDevice.ReadReport(ReadProcess);
+        }
+
+
+Volgens mij is dat het. Anders hoor ik het wel.
+
+Groeten
+Jaap
+
+
+
+
+#region Assembly HidLibrary, Version=3.2.46.0, Culture=neutral, PublicKeyToken=null
+// C:\software projects\EventExchanger\EventExchanger_VisualStudio\packages\hidlibrary.3.2.46.0\lib\HidLibrary.dll
+#endregion
+
+namespace HidLibrary
+{
+    public class HidReport
+    {
+        public HidReport(int reportSize);
+        public HidReport(int reportSize, HidDeviceData deviceData);
+
+        public bool Exists { get; }
+        public HidDeviceData.ReadStatus ReadStatus { get; }
+        public byte ReportId { get; set; }
+        public byte[] Data { get; set; }
+
+        public byte[] GetBytes();
+    }
+}
+
+
+
+   public class HidDeviceCapabilities
+    {
+        public short Usage { get; }
+        public short UsagePage { get; }
+        public short InputReportByteLength { get; }
+        public short OutputReportByteLength { get; }
+        public short FeatureReportByteLength { get; }
+        public short[] Reserved { get; }
+        public short NumberLinkCollectionNodes { get; }
+        public short NumberInputButtonCaps { get; }
+        public short NumberInputValueCaps { get; }
+        public short NumberInputDataIndices { get; }
+        public short NumberOutputButtonCaps { get; }
+        public short NumberOutputValueCaps { get; }
+        public short NumberOutputDataIndices { get; }
+        public short NumberFeatureButtonCaps { get; }
+        public short NumberFeatureValueCaps { get; }
+        public short NumberFeatureDataIndices { get; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+

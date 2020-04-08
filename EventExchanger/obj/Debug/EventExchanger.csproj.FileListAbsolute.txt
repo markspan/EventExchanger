@@ -1,0 +1,23 @@
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\EventExchanger.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\EventExchanger.pdb
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\HidSharp.DeviceHelpers.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\HidSharp.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\obj\Debug\EventExchanger.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\obj\Debug\EventExchanger.pdb
+C:\Users\p154492\Documents\Visual Studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\HidSharp.pdb
+C:\Users\p154492\Documents\Visual Studio 2013\Projects\EventExchanger\EventExchanger\bin\Debug\HidSharp.xml
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\EventExchanger.dll
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\EventExchanger.pdb
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\HidSharp.DeviceHelpers.dll
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\HidSharp.dll
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\HidSharp.pdb
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Debug\HidSharp.xml
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Debug\EventExchanger.csproj.CoreCompileInputs.cache
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Debug\EventExchanger.csproj.CopyComplete
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Debug\EventExchanger.dll
+c:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Debug\EventExchanger.pdb
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\ID_EvenExchanger_DLL\EventExchanger.dll
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\ID_EvenExchanger_DLL\EventExchanger.pdb
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\Pulse_EVT2\EventExchanger.dll
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\Pulse_EVT2\EventExchanger.pdb
+C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Debug\EventExchanger.csprojAssemblyReference.cache

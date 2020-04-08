@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventExchanger", "EventExchanger\EventExchanger.csproj", "{F0EB8246-F1E6-4FDC-87D1-4632C578D339}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7E4FEA44-D9A5-4371-9077-8A09AA03C9EE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+		.nuget\PackMe.ps1 = .nuget\PackMe.ps1
+		.nuget\PowerPack.psm1 = .nuget\PowerPack.psm1
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EETester", "EETester\EETester.csproj", "{71048337-61B3-4539-9497-CA998A69898A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{F0EB8246-F1E6-4FDC-87D1-4632C578D339}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{71048337-61B3-4539-9497-CA998A69898A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88097BB5-C2A9-40D2-A88C-0DF33E1BEC34}
+	EndGlobalSection
+EndGlobal

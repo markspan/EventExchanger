@@ -1,0 +1,36 @@
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\EventExchanger.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\EventExchanger.pdb
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\HidSharp.DeviceHelpers.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\HidSharp.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\obj\Release\EventExchanger.dll
+c:\users\p154492\documents\visual studio 2013\Projects\EventExchanger\EventExchanger\obj\Release\EventExchanger.pdb
+C:\Users\p154492\Documents\Visual Studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\HidSharp.pdb
+C:\Users\p154492\Documents\Visual Studio 2013\Projects\EventExchanger\EventExchanger\bin\Release\HidSharp.xml
+C:\Users\p154492\Documents\Visual Studio 2013\Projects\EventExchanger\EventExchanger\obj\Release\EventExchanger.csprojResolveAssemblyReference.cache
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\EventExchanger.dll
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\EventExchanger.pdb
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\HidSharp.DeviceHelpers.dll
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\HidSharp.dll
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\HidSharp.pdb
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\bin\Release\HidSharp.xml
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\obj\Release\EventExchanger.csprojAssemblyReference.cache
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\obj\Release\EventExchanger.csproj.CoreCompileInputs.cache
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\obj\Release\EventExchanger.dll
+C:\software projects\EventExchanger\EventExchanger_VS\EventExchanger\obj\Release\EventExchanger.pdb
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\EventExchanger.dll
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\EventExchanger.pdb
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\HidSharp.DeviceHelpers.dll
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\HidSharp.dll
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\HidSharp.pdb
+C:\Software Projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\bin\Release\HidSharp.xml
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\ID_EvenExchanger_DLL\EventExchanger.dll
+C:\Program Files (x86)\opensesame\share\opensesame_plugins\ID_EvenExchanger_DLL\EventExchanger.pdb
+C:\Program Files (x86)\OpenSesame\share\opensesame_plugins\ID_EventExchanger_DLL\EventExchanger.dll
+C:\Program Files (x86)\OpenSesame\share\opensesame_plugins\ID_EventExchanger_DLL\EventExchanger.pdb
+C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Release\EventExchanger.csproj.CoreCompileInputs.cache
+C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
+C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Release\EventExchanger.dll
+C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Release\EventExchanger.pdb
+C:\bin\Release\EventExchanger.dll
+C:\bin\Release\EventExchanger.pdb
