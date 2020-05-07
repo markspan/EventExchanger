@@ -14,7 +14,13 @@ Any environment that can read and use .net code will be able to use this library
 e.g., Matlab and Python.
 
 For Python:
- 
+Preferred use:
+
+Wrapper library: pyEVT
+
+https://github.com/markspan/pyEVT
+
+Manual use:
 ```
  pip install pythonnet
 ```
