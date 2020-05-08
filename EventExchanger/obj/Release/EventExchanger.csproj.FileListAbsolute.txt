@@ -34,3 +34,12 @@ C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\o
 C:\software projects\EventExchanger\EventExchanger_VisualStudio\EventExchanger\obj\Release\EventExchanger.pdb
 C:\bin\Release\EventExchanger.dll
 C:\bin\Release\EventExchanger.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Release\EventExchanger.dll
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Release\EventExchanger.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Release\HidSharp.dll
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Release\HidSharp.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Release\HidSharp.xml
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.csproj.CoreCompileInputs.cache
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.dll
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.pdb

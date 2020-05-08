@@ -11,3 +11,16 @@ C:\software projects\EventExchanger\EventExchanger_VisualStudio\EETester\obj\Deb
 C:\software projects\EventExchanger\EventExchanger_VisualStudio\EETester\obj\Debug\EETester.csproj.CopyComplete
 C:\software projects\EventExchanger\EventExchanger_VisualStudio\EETester\obj\Debug\EETester.exe
 C:\software projects\EventExchanger\EventExchanger_VisualStudio\EETester\obj\Debug\EETester.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\EETester.exe.config
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\EETester.exe
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\EETester.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\EventExchanger.dll
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\HidSharp.dll
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\EventExchanger.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\HidSharp.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\HidSharp.xml
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csprojAssemblyReference.cache
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csproj.CoreCompileInputs.cache
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csproj.CopyComplete
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.exe
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.pdb

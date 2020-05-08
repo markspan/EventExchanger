@@ -1,0 +1,13 @@
+  Button1: NaN -> 0
+  Button2: NaN -> 0
+  Button3: NaN -> 0
+  Button4: NaN -> 0
+  Button5: NaN -> 0
+  Button6: NaN -> 0
+  Button7: NaN -> 0
+  Button8: NaN -> 0
+  GenericDesktopX: NaN -> 1017
+  GenericDesktopX: 1017 -> 1001
+  GenericDesktopX: 1001 -> 1017
+  GenericDesktopX: 1017 -> 1023
+
