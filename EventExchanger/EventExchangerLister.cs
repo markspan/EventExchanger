@@ -53,6 +53,7 @@ namespace ID
         const Byte SWITCHEVENTTEST = 201;   // 0xC9
 
         Byte CurrentButtons = 0;
+        int lastbtn;
         Byte PreviousButtons = 0;
 
         DeviceList list = DeviceList.Local;
@@ -69,6 +70,20 @@ namespace ID
             public double newval { get; set; }
 
             public override string ToString() => $"({oldval}, {newval})";
+        }
+
+        private struct EventTime
+        {
+            public EventTime(double _btn, double _rt)
+            {
+                btn = _btn;
+                rt = _rt;
+            }
+
+            public double btn { get; set; }
+            public double rt { get; set; }
+
+            public override string ToString() => $"{btn} :: {rt}";
         }
 
         Dictionary<string, status> AxisAndButtons =
@@ -248,9 +263,14 @@ namespace ID
                                                 {
                                                     int btn = Convert.ToByte(Type.Last()) - 49;
                                                     if (_status.newval == 1)
+                                                    {
                                                         CurrentButtons = (byte)(CurrentButtons | (1 << btn));
+                                                        lastbtn = btn;
+                                                    }
                                                     else
+                                                    {
                                                         CurrentButtons = (byte)(CurrentButtons & ~(1 << btn));
+                                                    }
                                                 }
                                                 try
                                                 {
@@ -343,7 +363,7 @@ namespace ID
             }
         }
         // ===================================================================================
-        public Double WaitForDigEvents(Byte AllowedEventLines, int TimeoutMSecs)
+        public String WaitForDigEvents(Byte AllowedEventLines, int TimeoutMSecs)
         {
             DateTime startTime = DateTime.Now;
             Double ElapsedMs = 0;
@@ -356,10 +376,15 @@ namespace ID
                 }
 
                 ElapsedMs = ((TimeSpan)(DateTime.Now - startTime)).TotalMilliseconds;
+                if (TimeoutMSecs != -1)
                 if (ElapsedMs >= TimeoutMSecs)
+                {
+                    lastbtn = -1;
                     break;
+                }
             }
-            return ElapsedMs;
+            EventTime Retval = new EventTime(lastbtn, ElapsedMs);
+            return Retval.ToString();
         }
         // ===================================================================================
         private void OnTimeoutEvent(Object source, System.Timers.ElapsedEventArgs e)
