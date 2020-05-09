@@ -30,4 +30,4 @@ C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Debug\EventExchan
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Debug\EventExchanger.csproj.CopyComplete
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Debug\EventExchanger.dll
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Debug\EventExchanger.pdb
-C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Debug\EventExchanger.csprojAssemblyReference.cache
+C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\bin\Debug\Python.Runtime.dll

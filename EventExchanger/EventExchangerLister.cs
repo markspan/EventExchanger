@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading;
 using HidSharp;
 using HidSharp.Reports;
-using HidSharp.Reports.Encodings;
-using HidSharp.Utility;
+using Python.Runtime;
+
+//using HidSharp.Reports.Encodings;
+//using HidSharp.Utility;
 
 namespace ID
 {
@@ -70,6 +72,8 @@ namespace ID
             public double newval { get; set; }
 
             public override string ToString() => $"({oldval}, {newval})";
+            public Tuple<double, double> ToTuple() => Tuple.Create(oldval, newval);
+            
         }
 
         private struct EventTime
@@ -84,6 +88,12 @@ namespace ID
             public double rt { get; set; }
 
             public override string ToString() => $"{btn} :: {rt}";
+            public PyTuple ToTuple()
+            {
+                var a = new PyObject[] { new PyFloat(btn), new PyFloat(rt) };
+                return new PyTuple(a);
+            }
+            //=> Tuple.Create(btn, rt);
         }
 
         Dictionary<string, status> AxisAndButtons =
@@ -188,7 +198,11 @@ namespace ID
 
             return ProductNames;
         }
-
+        public string Selected()
+        {
+            if (device == null) return "None";
+            return device.GetProductName();
+        }
         public string Select(string partName, string serialNumber)
         // ==========================================================================================
         {
@@ -363,7 +377,7 @@ namespace ID
             }
         }
         // ===================================================================================
-        public String WaitForDigEvents(Byte AllowedEventLines, int TimeoutMSecs)
+        public PyTuple WaitForDigEvents(Byte AllowedEventLines, int TimeoutMSecs)
         {
             DateTime startTime = DateTime.Now;
             Double ElapsedMs = 0;
@@ -384,7 +398,7 @@ namespace ID
                 }
             }
             EventTime Retval = new EventTime(lastbtn, ElapsedMs);
-            return Retval.ToString();
+            return Retval.ToTuple();
         }
         // ===================================================================================
         private void OnTimeoutEvent(Object source, System.Timers.ElapsedEventArgs e)

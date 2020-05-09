@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyEVT
-Version: 0.99.1
+Version: 0.99.3
 Summary: Package to communicate with RUG developed hardware
 Home-page: https://github.com/markspan/pyEVT
 Author: Eise Hoekstra and Mark Span (primary developer)
