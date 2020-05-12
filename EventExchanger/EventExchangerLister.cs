@@ -72,8 +72,11 @@ namespace ID
             public double newval { get; set; }
 
             public override string ToString() => $"({oldval}, {newval})";
-            public Tuple<double, double> ToTuple() => Tuple.Create(oldval, newval);
-            
+            public PyTuple ToTuple()
+            {
+                var a = new PyObject[] { new PyFloat(oldval), new PyFloat(newval) };
+                return new PyTuple(a);
+            }
         }
 
         private struct EventTime
@@ -134,13 +137,17 @@ namespace ID
             List<string> ProductNames = new List<String>();
             foreach (HidDevice idev in HIDdeviceList)
             {
-                if (idev.GetProductName().Contains("EventExchanger"))
+                try
                 {
-                    ProductNames.Add(idev.GetProductName() + " #-# " + idev.GetSerialNumber());
-                    device = idev;
+                    if (idev.GetProductName().Contains("EventExchanger"))
+                    {
+                        ProductNames.Add(idev.GetProductName() + " #-# " + idev.GetSerialNumber());
+                        device = idev;
+                    }
                 }
-            }
-            if (ProductNames.Count != 1)
+                catch (Exception e)
+                { }
+            }            if (ProductNames.Count != 1)
                 device = null;
 
             return ProductNames;
@@ -154,10 +161,16 @@ namespace ID
             List<string> ProductNames = new List<String>();
             foreach (HidDevice idev in HIDdeviceList)
             {
-                if (idev.GetProductName().Contains("EventExchanger"))
+                try
                 {
-                    ProductNames.Add(idev.GetProductName() + " #-# " + idev.GetSerialNumber());
-                    device = idev;
+                    if (idev.GetProductName().Contains("EventExchanger"))
+                    {
+                        ProductNames.Add(idev.GetProductName() + " #-# " + idev.GetSerialNumber());
+                        device = idev;
+                    }
+                }
+                catch (Exception e)
+                {
                 }
             }
             if (ProductNames.Count != 1)
@@ -181,16 +194,16 @@ namespace ID
             List<string> ProductNames = new List<String>();
             foreach (HidDevice idev in HIDdeviceList)
             {
-                if (idev.GetProductName().Contains(partName))
+                try
                 {
-                    try
+                    if (idev.GetProductName().Contains(partName))
                     {
                         ProductNames.Add(idev.GetProductName() + " #-# " + idev.GetSerialNumber());
                         device = idev;
                     }
-                    catch (Exception e)
-                    {
-                    }
+                }
+                catch (Exception e)
+                {
                 }
             }
             if (ProductNames.Count != 1)
@@ -198,6 +211,7 @@ namespace ID
 
             return ProductNames;
         }
+
         public string Selected()
         {
             if (device == null) return "None";
@@ -210,15 +224,15 @@ namespace ID
             HIDdeviceList = list.GetHidDevices().ToArray();
             foreach (HidDevice idev in HIDdeviceList)
             {
-                if (idev.GetProductName().Contains(partName) && idev.GetSerialNumber().Contains(serialNumber))
+                try
                 {
-                    try
+                    if (idev.GetProductName().Contains(partName) && idev.GetSerialNumber().Contains(serialNumber))
                     {
                         device = idev;
                     }
-                    catch (Exception e)
-                    {
-                    }
+                }
+                catch (Exception e)
+                {
                 }
             }
 
@@ -405,13 +419,6 @@ namespace ID
         // ===================================================================================
         {
         }
-
-
-
-
-
-
-
         // ===========================================================================================
         // ===========================================================================================
 
