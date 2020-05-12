@@ -24,3 +24,4 @@ C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csproj.C
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csproj.CopyComplete
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.exe
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.pdb
+C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\Python.Runtime.dll

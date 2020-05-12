@@ -96,7 +96,6 @@ namespace ID
                 var a = new PyObject[] { new PyFloat(btn), new PyFloat(rt) };
                 return new PyTuple(a);
             }
-            //=> Tuple.Create(btn, rt);
         }
 
         Dictionary<string, status> AxisAndButtons =
@@ -371,8 +370,10 @@ namespace ID
                 catch (Exception)
                 {
                     return double.NaN;
-                }            }
+                }
+            }
         }
+
         public List<string> Get_Axis_Names()
         // ===================================================================================
         {
@@ -490,6 +491,7 @@ namespace ID
                                                                   (byte)MinimumValue, (byte)(MinimumValue >> 8),
                                                                   (byte)Position,     (byte)(Position >> 8),
                                                                    InputChange, PulseInputDivider, 0 };
+                Console.WriteLine("SetUp" + USBbytes.ToString());
                 hidStream.Write(USBbytes);
             }
         }
@@ -502,6 +504,7 @@ namespace ID
             {
                 var USBbytes = new Byte[] { 0, SETROTARYCONTROLLERPOSITION, (byte)Position, (byte)(Position >> 8),
                                                                         0, 0, 0, 0, 0, 0, 0 };
+                Console.WriteLine("Setposition");
                 hidStream.Write(USBbytes);
             }
         }

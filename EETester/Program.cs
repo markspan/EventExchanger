@@ -14,14 +14,16 @@ namespace EETester
         {
             EventExchangerLister instance = new EventExchangerLister();
             List<string> Devices = instance.Attached();
-            
+            instance.RENC_SetUp(100, 10, 20, 1, 1);
             instance.Start();
-            
+            instance.RENC_SetPosition(51);
             while (true)
             {
                 var l = instance.GetAxis(1);
-                Console.WriteLine(l);
+                if (!double.IsNaN(l)) Console.WriteLine(l);
+                if (Console.KeyAvailable) break;
             }
+            instance.Stop();
         }
     }
 }

@@ -20,7 +20,7 @@
 //#define THREAD_POOL_RECEIVED_EVENT_APPROACH
 //#define RAW_APPROACH
 
-#define SHOW_CHANGES_ONLY
+//#define SHOW_CHANGES_ONLY
 
 using System;
 using System.Diagnostics;
@@ -354,7 +354,7 @@ namespace HidSharp.Test
                                     }
 
                                     uint elapsedTime = (uint)(Environment.TickCount - startTime);
-                                    if (elapsedTime >= 20000) { break; } // Stay open for 20 seconds.
+                                    if (elapsedTime >= 20) { break; } // Stay open for 20 seconds.
 #elif THREAD_POOL_RECEIVED_EVENT_APPROACH
                                     inputReceiver.Received += (sender, e) =>
                                         {
