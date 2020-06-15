@@ -43,3 +43,13 @@ C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExch
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.dll
 C:\Users\Mark Span\Documents\Eventexchanger\EventExchanger\obj\Release\EventExchanger.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\EventExchanger.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\EventExchanger.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\HidSharp.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\HidSharp.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\HidSharp.xml
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.CoreCompileInputs.cache
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\Python.Runtime.dll

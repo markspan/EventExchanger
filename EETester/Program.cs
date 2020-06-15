@@ -1,29 +1,35 @@
-﻿using System;
+﻿using ID;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using ID;
 
 namespace EETester
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            EventExchangerLister instance = new EventExchangerLister();
-            List<string> Devices = instance.Attached();
-            instance.RENC_SetUp(100, 10, 20, 1, 1);
-            instance.Start();
-            instance.RENC_SetPosition(51);
+            double p = 0;
+            // EventExchangerLister instance = EventExchangerLister();
+            List<string> Devices = EventExchangerLister.Attached();
+            Console.WriteLine(Devices[0]);
+            EventExchangerLister.RENC_SetPosition(0);
+            EventExchangerLister.Start();
             while (true)
             {
-                var l = instance.GetAxis(1);
-                if (!double.IsNaN(l)) Console.WriteLine(l);
-                if (Console.KeyAvailable) break;
+                double l = EventExchangerLister.GetAxis(1);
+                if ((l != p) && !double.IsNaN(l))
+                    Console.WriteLine(l);
+                p = l;
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKey k = Console.ReadKey(false).Key;
+                    if (k == ConsoleKey.Enter) break;
+                    if (k == ConsoleKey.A) EventExchangerLister.RENC_SetUp(100, 0, 50, 1, 1);
+                }
             }
-            instance.Stop();
+
+
+            EventExchangerLister.Stop();
         }
     }
 }

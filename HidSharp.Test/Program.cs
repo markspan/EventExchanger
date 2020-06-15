@@ -22,21 +22,20 @@
 
 //#define SHOW_CHANGES_ONLY
 
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using HidSharp.Experimental;
 using HidSharp.Reports;
 using HidSharp.Reports.Encodings;
 using HidSharp.Utility;
+using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 
 namespace HidSharp.Test
 {
-    class Program
+    internal class Program
     {
-        static void WriteDeviceItemInputParserResult(Reports.Input.DeviceItemInputParser parser)
+        private static void WriteDeviceItemInputParserResult(Reports.Input.DeviceItemInputParser parser)
         {
 #if SHOW_CHANGES_ONLY
             while (parser.HasChanged)
@@ -55,7 +54,7 @@ namespace HidSharp.Test
 
                 for (int valueIndex = 0; valueIndex < valueCount; valueIndex++)
                 {
-                    var dataValue = parser.GetValue(valueIndex);
+                    DataValue dataValue = parser.GetValue(valueIndex);
                     Console.Write(string.Format("  {0}: {1}",
                                       (Usage)dataValue.Usages.FirstOrDefault(), dataValue.GetPhysicalValue()));
 
@@ -66,7 +65,7 @@ namespace HidSharp.Test
 #endif
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Trace.Listeners.Clear();
             //Trace.Listeners.Add(new ConsoleTraceListener());
@@ -74,129 +73,129 @@ namespace HidSharp.Test
             HidSharpDiagnostics.EnableTracing = true;
             HidSharpDiagnostics.PerformStrictChecks = true;
 
-            var list = DeviceList.Local;
+            DeviceList list = DeviceList.Local;
             list.Changed += (sender, e) => Console.WriteLine("Device list changed.");
 
             //Console.WriteLine("Beginning discovery.");
             //using (list.BeginBleDiscovery())
             {
 
-            var allDeviceList = list.GetAllDevices().ToArray();
-            Console.WriteLine("All device list:");
+                Device[] allDeviceList = list.GetAllDevices().ToArray();
+                Console.WriteLine("All device list:");
 
-            foreach (Device idev in allDeviceList)
-            {
-                Console.WriteLine(idev.ToString() + " @ " + idev.DevicePath);
-                /*
-                if (dev is HidDevice)
+                foreach (Device idev in allDeviceList)
                 {
-                    foreach (var serialPort in
-                        (((HidDevice)dev).GetSerialPorts()))
+                    Console.WriteLine(idev.ToString() + " @ " + idev.DevicePath);
+                    /*
+                    if (dev is HidDevice)
                     {
-                        Console.WriteLine("    " + serialPort);
-                    }
-                }
-                */
-            }
-
-            var bleDeviceList = list.GetBleDevices().ToArray();
-            Console.WriteLine("BLE device list:");
-            foreach (BleDevice idev in bleDeviceList)
-            {
-                Console.WriteLine(idev.ToString() + "@" + idev.DevicePath);
-                foreach (var service in idev.GetServices())
-                {
-                    Console.WriteLine(string.Format("\tService: {0}", service.Uuid));
-                    foreach (var characteristic in service.GetCharacteristics())
-                    {
-                        Console.WriteLine(string.Format("\t\tCharacteristic: {0} (Properties: {1})", characteristic.Uuid, characteristic.Properties));
-                        foreach (var descriptor in characteristic.GetDescriptors())
+                        foreach (var serialPort in
+                            (((HidDevice)dev).GetSerialPorts()))
                         {
-                            Console.WriteLine(string.Format("\t\t\tDescriptor: {0}", descriptor.Uuid));
+                            Console.WriteLine("    " + serialPort);
                         }
                     }
+                    */
+                }
 
-                    if (service.Uuid == new BleUuid("63dc0001-fa35-4205-b09f-0fc6072ec515"))
+                BleDevice[] bleDeviceList = list.GetBleDevices().ToArray();
+                Console.WriteLine("BLE device list:");
+                foreach (BleDevice idev in bleDeviceList)
+                {
+                    Console.WriteLine(idev.ToString() + "@" + idev.DevicePath);
+                    foreach (BleService service in idev.GetServices())
                     {
-                        try
+                        Console.WriteLine(string.Format("\tService: {0}", service.Uuid));
+                        foreach (BleCharacteristic characteristic in service.GetCharacteristics())
                         {
-                            using (var svc = idev.Open(service))
+                            Console.WriteLine(string.Format("\t\tCharacteristic: {0} (Properties: {1})", characteristic.Uuid, characteristic.Properties));
+                            foreach (BleDescriptor descriptor in characteristic.GetDescriptors())
                             {
-                                Console.WriteLine("Opened!");
-
-                                BleCharacteristic rx = null;
-
-                                foreach (var ch in service.GetCharacteristics())
-                                {
-                                    Console.WriteLine(string.Format("{0} = {1}", ch.Uuid, ch.IsReadable ? string.Join(" ", svc.ReadCharacteristic(ch)) : "N/A"));
-
-                                    foreach (var d in ch.GetDescriptors())
-                                    {
-                                        Console.WriteLine(string.Format("\t{0} = {1}", d.Uuid, string.Join(" ", svc.ReadDescriptor(d))));
-                                    }
-
-                                    if (BleCccd.Notification != svc.ReadCccd(ch))
-                                    {
-                                        svc.WriteCccd(ch, BleCccd.Notification);
-                                    }
-
-                                    if (ch.Uuid == new BleUuid("63dc0002-fa35-4205-b09f-0fc6072ec515")) { rx = ch; }
-                                }
-
-                                Action beginReadEvent = null;
-                                AsyncCallback endReadEvent = null;
-                                beginReadEvent = () =>
-                                    {
-                                        svc.BeginReadEvent(endReadEvent, null);
-                                    };
-                                endReadEvent = ar =>
-                                    {
-                                        BleEvent @event;
-
-                                        try
-                                        {
-                                            @event = svc.EndReadEvent(ar);
-                                        }
-                                        catch (ObjectDisposedException)
-                                        {
-                                            Console.WriteLine("closed");
-                                            return;
-                                        }
-                                        catch (TimeoutException)
-                                        {
-                                            Console.WriteLine("timed out");
-                                            @event = default(BleEvent);
-                                        }
-
-                                        if (@event.Value != null)
-                                        {
-                                            Console.WriteLine(string.Format("{0} -> {1}", @event.Characteristic, string.Join(" ", @event.Value.Select(x => x.ToString()))));
-
-                                            if (rx != null)
-                                            {
-                                                Console.WriteLine("writing");
-                                                svc.WriteCharacteristicWithoutResponse(rx, new[] { (byte)0xdd, (byte)1, (byte)'A' });
-                                            }
-                                        }
-                                        beginReadEvent();
-                                    };
-                                beginReadEvent();
-
-                                Thread.Sleep(30000);
+                                Console.WriteLine(string.Format("\t\t\tDescriptor: {0}", descriptor.Uuid));
                             }
                         }
-                        catch (Exception e)
+
+                        if (service.Uuid == new BleUuid("63dc0001-fa35-4205-b09f-0fc6072ec515"))
                         {
-                            Console.WriteLine(e.ToString());
+                            try
+                            {
+                                using (BleStream svc = idev.Open(service))
+                                {
+                                    Console.WriteLine("Opened!");
+
+                                    BleCharacteristic rx = null;
+
+                                    foreach (BleCharacteristic ch in service.GetCharacteristics())
+                                    {
+                                        Console.WriteLine(string.Format("{0} = {1}", ch.Uuid, ch.IsReadable ? string.Join(" ", svc.ReadCharacteristic(ch)) : "N/A"));
+
+                                        foreach (BleDescriptor d in ch.GetDescriptors())
+                                        {
+                                            Console.WriteLine(string.Format("\t{0} = {1}", d.Uuid, string.Join(" ", svc.ReadDescriptor(d))));
+                                        }
+
+                                        if (BleCccd.Notification != svc.ReadCccd(ch))
+                                        {
+                                            svc.WriteCccd(ch, BleCccd.Notification);
+                                        }
+
+                                        if (ch.Uuid == new BleUuid("63dc0002-fa35-4205-b09f-0fc6072ec515")) { rx = ch; }
+                                    }
+
+                                    Action beginReadEvent = null;
+                                    AsyncCallback endReadEvent = null;
+                                    beginReadEvent = () =>
+                                        {
+                                            svc.BeginReadEvent(endReadEvent, null);
+                                        };
+                                    endReadEvent = ar =>
+                                        {
+                                            BleEvent @event;
+
+                                            try
+                                            {
+                                                @event = svc.EndReadEvent(ar);
+                                            }
+                                            catch (ObjectDisposedException)
+                                            {
+                                                Console.WriteLine("closed");
+                                                return;
+                                            }
+                                            catch (TimeoutException)
+                                            {
+                                                Console.WriteLine("timed out");
+                                                @event = default(BleEvent);
+                                            }
+
+                                            if (@event.Value != null)
+                                            {
+                                                Console.WriteLine(string.Format("{0} -> {1}", @event.Characteristic, string.Join(" ", @event.Value.Select(x => x.ToString()))));
+
+                                                if (rx != null)
+                                                {
+                                                    Console.WriteLine("writing");
+                                                    svc.WriteCharacteristicWithoutResponse(rx, new[] { (byte)0xdd, (byte)1, (byte)'A' });
+                                                }
+                                            }
+                                            beginReadEvent();
+                                        };
+                                    beginReadEvent();
+
+                                    Thread.Sleep(30000);
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.ToString());
+                            }
                         }
                     }
                 }
-            }
 
-            Console.WriteLine();
-            Console.WriteLine("Press any key");
-            Console.ReadKey();
-            Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Press any key");
+                Console.ReadKey();
+                Console.WriteLine();
             }
             //Console.WriteLine("Ending discovery.");
 
@@ -211,8 +210,8 @@ namespace HidSharp.Test
             Console.WriteLine();
             */
 
-            var stopwatch = Stopwatch.StartNew();
-            var hidDeviceList = list.GetHidDevices().ToArray();
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            HidDevice[] hidDeviceList = list.GetHidDevices().ToArray();
 
             Console.WriteLine("Complete device list (took {0} ms to get {1} devices):",
                               stopwatch.ElapsedMilliseconds, hidDeviceList.Length);
@@ -223,7 +222,7 @@ namespace HidSharp.Test
                     dev = idev;
             }
             if (dev != null)
-            { 
+            {
 
                 Console.WriteLine(dev.DevicePath);
                 //Console.WriteLine(string.Join(",", dev.GetDevicePathHierarchy())); // TODO
@@ -254,12 +253,12 @@ namespace HidSharp.Test
 
                 try
                 {
-                    var rawReportDescriptor = dev.GetRawReportDescriptor();
+                    byte[] rawReportDescriptor = dev.GetRawReportDescriptor();
                     Console.WriteLine("Report Descriptor:");
                     Console.WriteLine("  {0} ({1} bytes)", string.Join(" ", rawReportDescriptor.Select(d => d.ToString("X2"))), rawReportDescriptor.Length);
 
                     int indent = 0;
-                    foreach (var element in EncodedItem.DecodeItems(rawReportDescriptor, 0, rawReportDescriptor.Length))
+                    foreach (EncodedItem element in EncodedItem.DecodeItems(rawReportDescriptor, 0, rawReportDescriptor.Length))
                     {
                         if (element.ItemType == ItemType.Main && element.TagForMain == MainItemTag.EndCollection) { indent -= 2; }
 
@@ -268,24 +267,24 @@ namespace HidSharp.Test
                         if (element.ItemType == ItemType.Main && element.TagForMain == MainItemTag.Collection) { indent += 2; }
                     }
 
-                    var reportDescriptor = dev.GetReportDescriptor();
+                    ReportDescriptor reportDescriptor = dev.GetReportDescriptor();
 
                     // Lengths should match.
                     Debug.Assert(dev.GetMaxInputReportLength() == reportDescriptor.MaxInputReportLength);
                     Debug.Assert(dev.GetMaxOutputReportLength() == reportDescriptor.MaxOutputReportLength);
                     Debug.Assert(dev.GetMaxFeatureReportLength() == reportDescriptor.MaxFeatureReportLength);
 
-                    foreach (var deviceItem in reportDescriptor.DeviceItems)
+                    foreach (DeviceItem deviceItem in reportDescriptor.DeviceItems)
                     {
-                        foreach (var usage in deviceItem.Usages.GetAllValues())
+                        foreach (uint usage in deviceItem.Usages.GetAllValues())
                         {
                             Console.WriteLine(string.Format("Usage: {0:X4} {1}", usage, (Usage)usage));
                         }
-                        foreach (var report in deviceItem.Reports)
+                        foreach (Report report in deviceItem.Reports)
                         {
                             Console.WriteLine(string.Format("{0}: ReportID={1}, Length={2}, Items={3}",
                                                 report.ReportType, report.ReportID, report.Length, report.DataItems.Count));
-                            foreach (var dataItem in report.DataItems)
+                            foreach (DataItem dataItem in report.DataItems)
                             {
                                 Console.WriteLine(string.Format("  {0} Elements x {1} Bits, Units: {2}, Expected Usage Type: {3}, Flags: {4}, Usages: {5}",
                                     dataItem.ElementCount, dataItem.ElementBits, dataItem.Unit.System, dataItem.ExpectedUsageType, dataItem.Flags,
@@ -304,9 +303,9 @@ namespace HidSharp.Test
 
                                 using (hidStream)
                                 {
-                                    var inputReportBuffer = new byte[dev.GetMaxInputReportLength()];
-                                    var inputReceiver = reportDescriptor.CreateHidDeviceInputReceiver();
-                                    var inputParser = deviceItem.CreateDeviceItemInputParser();
+                                    byte[] inputReportBuffer = new byte[dev.GetMaxInputReportLength()];
+                                    Reports.Input.HidDeviceInputReceiver inputReceiver = reportDescriptor.CreateHidDeviceInputReceiver();
+                                    Reports.Input.DeviceItemInputParser inputParser = deviceItem.CreateDeviceItemInputParser();
 
 #if SINGLE_THREADED_WAITHANDLE_APPROACH
                                     inputReceiver.Start(hidStream);

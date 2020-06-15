@@ -25,3 +25,17 @@ C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.csproj.C
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.exe
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\obj\Debug\EETester.pdb
 C:\Users\Mark Span\Documents\Eventexchanger\EETester\bin\Debug\Python.Runtime.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\EETester.exe.config
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\EETester.exe
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\EETester.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\EventExchanger.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\HidSharp.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\Python.Runtime.dll
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\EventExchanger.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\HidSharp.pdb
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\bin\Debug\HidSharp.xml
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\obj\Debug\EETester.csprojAssemblyReference.cache
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\obj\Debug\EETester.csproj.CoreCompileInputs.cache
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\obj\Debug\EETester.csproj.CopyComplete
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\obj\Debug\EETester.exe
+D:\Users\mmspa\Documents\GitHub\EventExchanger\EETester\obj\Debug\EETester.pdb
