@@ -106,7 +106,7 @@ namespace ID
 
         private static IEnumerable<HidDevice> HIDdeviceList;
         private static HidDevice device = null;
-        private const string _Version = "0.99x";
+        private const string _Version = "0.99x static";
         private static readonly char[] AxisId = new char[] { 'X', 'Y', 'Z', 'A', 'B' };
 
         // ===========================================================================================
