@@ -53,3 +53,13 @@ D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventE
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.dll
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Release\EventExchanger.pdb
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\bin\Release\Python.Runtime.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\EventExchanger.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\EventExchanger.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\HidSharp.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\HidSharp.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\HidSharp.xml
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.AssemblyReference.cache
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.CoreCompileInputs.cache
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.pdb

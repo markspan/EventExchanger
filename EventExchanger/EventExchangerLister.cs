@@ -1,4 +1,4 @@
-﻿#define usingpython
+﻿//#define usingpython
 using HidSharp;
 using HidSharp.Reports;
 #if usingpython
@@ -12,14 +12,14 @@ using System.Threading;
 
 namespace ID
 {
-    public static class EventExchangerLister
+    public   class EventExchangerLister
     {
         // ===================================================================================
         // ===================================================================================
         // Constants to define command-codes given to connected EventExchanger via USB port.                                     
         // ===================================================================================
         // ===================================================================================
-        private static readonly object EventBufferLock = new object();
+        private   readonly object EventBufferLock = new object();
         private const byte CLEAROUTPUTPORT = 0;   // 0x00
         private const byte SETOUTPUTPORT = 1;   // 0x01
         private const byte SETOUTPUTLINES = 2;   // 0x02
@@ -54,9 +54,9 @@ namespace ID
         private const byte SWITCHDIAGNOSTICMODE = 200;   // 0xC8
         private const byte SWITCHEVENTTEST = 201;   // 0xC9
 
-        private static byte CurrentButtons = 0;
-        private static int lastbtn;
-        private static readonly DeviceList list = DeviceList.Local;
+        private   byte CurrentButtons = 0;
+        private   int lastbtn;
+        private   readonly DeviceList list = DeviceList.Local;
 
         private struct status
         {
@@ -100,24 +100,24 @@ namespace ID
 #endif
         }
 
-        private static readonly Dictionary<string, status> AxisAndButtons =
+        private   readonly Dictionary<string, status> AxisAndButtons =
              new Dictionary<string, status>();
-        private static Thread Poller;
+        private   Thread Poller;
 
-        private static IEnumerable<HidDevice> HIDdeviceList;
-        private static HidDevice device = null;
-        private const string _Version = "0.99x static";
-        private static readonly char[] AxisId = new char[] { 'X', 'Y', 'Z', 'A', 'B' };
+        private   IEnumerable<HidDevice> HIDdeviceList;
+        private   HidDevice device = null;
+        private const string _Version = "0.99x  ";
+        private   readonly char[] AxisId = new char[] { 'X', 'Y', 'Z', 'A', 'B' };
 
         // ===========================================================================================
-        public static string Version()
+        public   string Version()
         // ===========================================================================================
         {
             return _Version;
         }
         // ===========================================================================================
         // ===========================================================================================
-        public static string DeviceName()
+        public   string DeviceName()
         // -------------------------------------------------------------------------------------------
         //    Returns a string, containing The friendly name of the current output device.
         // -------------------------------------------------------------------------------------------
@@ -129,14 +129,14 @@ namespace ID
         }
 
         // ===========================================================================================
-        public static string GetSerialNumber()
+        public   string GetSerialNumber()
         {
             if (device != null)
                 return device.GetSerialNumber();
             else
                 return "EventExchanger.dll -> Device info is not accessible, device is not yet loaded ...";
         }
-        public static List<string> GetProductNames()
+        public   List<string> GetProductNames()
         // ===========================================================================================
         {
             HIDdeviceList = list.GetHidDevices().ToArray();
@@ -160,7 +160,7 @@ namespace ID
             return ProductNames;
         }
         // ==========================================================================================
-        public static List<string> Attached()
+        public   List<string> Attached()
         // ==========================================================================================
         {
             HIDdeviceList = list.GetHidDevices().ToArray();
@@ -186,7 +186,7 @@ namespace ID
             return ProductNames;
         }
 
-        public static List<string> Select(string partName)
+        public   List<string> Select(string partName)
         // ==========================================================================================
         {
             string[] sep = { " SN## " };
@@ -219,12 +219,12 @@ namespace ID
             return ProductNames;
         }
 
-        public static string Selected()
+        public   string Selected()
         {
             if (device == null) return "None";
             return device.GetProductName();
         }
-        public static string Select(string partName, string serialNumber)
+        public   string Select(string partName, string serialNumber)
         // ==========================================================================================
         {
             device = null;
@@ -250,7 +250,7 @@ namespace ID
         }
 
         // ==========================================================================================
-        public static void PollReports()
+        public   void PollReports()
         {
             ReportDescriptor reportDescriptor = device.GetReportDescriptor();
             foreach (DeviceItem deviceItem in reportDescriptor.DeviceItems)
@@ -328,7 +328,7 @@ namespace ID
                 }
             }
         }
-        public static void Start()
+        public   void Start()
         // ==========================================================================================
         {
 
@@ -343,7 +343,7 @@ namespace ID
             Poller.Start();
         }
 
-        public static void Stop()
+        public   void Stop()
         // ==========================================================================================
         {
 
@@ -355,7 +355,7 @@ namespace ID
         }
         // ==========================================================================================
         // ===================================================================================
-        public static int GetButtons()
+        public   int GetButtons()
         // ===================================================================================
         {
             lock (EventBufferLock)
@@ -365,7 +365,7 @@ namespace ID
         }
         // ===================================================================================
         // ===================================================================================
-        public static double GetAxis(int ax)
+        public   double GetAxis(int ax)
         // ===================================================================================
         {
             lock (EventBufferLock)
@@ -382,7 +382,7 @@ namespace ID
             }
         }
 
-        public static List<string> Get_Axis_Names()
+        public   List<string> Get_Axis_Names()
         // ===================================================================================
         {
             lock (EventBufferLock)
@@ -402,9 +402,9 @@ namespace ID
         // ===================================================================================
 
 #if usingpython
-        public static PyTuple WaitForDigEvents(byte AllowedEventLines, int TimeoutMSecs)
+        public   PyTuple WaitForDigEvents(byte AllowedEventLines, int TimeoutMSecs)
 #else
-        public static string WaitForDigEvents(byte AllowedEventLines, int TimeoutMSecs)
+        public   string WaitForDigEvents(byte AllowedEventLines, int TimeoutMSecs)
 #endif
         {
             AxisAndButtons.Clear();
@@ -437,7 +437,7 @@ namespace ID
 #endif
         }
         // ===================================================================================
-        private static void OnTimeoutEvent(object source, System.Timers.ElapsedEventArgs e)
+        private   void OnTimeoutEvent(object source, System.Timers.ElapsedEventArgs e)
         // ===================================================================================
         {
         }
@@ -446,7 +446,7 @@ namespace ID
 
 
         // ===========================================================================================
-        public static void SetAnalogEventStepSize(byte NumberOfSamplesPerStep)
+        public   void SetAnalogEventStepSize(byte NumberOfSamplesPerStep)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -457,7 +457,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void SetLines(byte OutValue)
+        public   void SetLines(byte OutValue)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -468,7 +468,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void PulseLines(byte OutValue, int DurationInMillisecs)
+        public   void PulseLines(byte OutValue, int DurationInMillisecs)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -480,7 +480,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void RerouteEventInput(byte InputLine, byte OutputBit)
+        public   void RerouteEventInput(byte InputLine, byte OutputBit)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -491,7 +491,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void CancelEventReroutes(byte dummy)
+        public   void CancelEventReroutes(byte dummy)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -502,7 +502,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void RENC_SetUp(int Range, int MinimumValue, int Position, byte InputChange, byte PulseInputDivider)
+        public   void RENC_SetUp(int Range, int MinimumValue, int Position, byte InputChange, byte PulseInputDivider)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -517,7 +517,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void RENC_SetPosition(int Position)
+        public   void RENC_SetPosition(int Position)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -532,7 +532,7 @@ namespace ID
         }
         // ===========================================================================================
         // ===========================================================================================
-        public static void ConveyEvent2Output(byte EventLine, byte OutputLine, byte InitialBitValue,
+        public   void ConveyEvent2Output(byte EventLine, byte OutputLine, byte InitialBitValue,
                                         byte Mode, short Duration)
         // ===========================================================================================
         {
@@ -545,7 +545,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void SetLedColor(byte RedValue, byte GreenValue, byte BlueValue, byte LedNumber, byte Mode)
+        public   void SetLedColor(byte RedValue, byte GreenValue, byte BlueValue, byte LedNumber, byte Mode)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -556,7 +556,7 @@ namespace ID
             }
         }
         // ===========================================================================================
-        public static void SendColors(byte NumberOfLeds, byte Mode)
+        public   void SendColors(byte NumberOfLeds, byte Mode)
         // ===========================================================================================
         {
             HidStream hidStream;
@@ -568,7 +568,7 @@ namespace ID
         }
 
         // ===========================================================================================
-        public static void ChangeInputLineStatus(byte Mode, byte LineNumber)
+        public   void ChangeInputLineStatus(byte Mode, byte LineNumber)
         // ===========================================================================================
         {
             HidStream hidStream;

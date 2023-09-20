@@ -42,3 +42,13 @@ D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Debug\EventExc
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Debug\EventExchanger.csproj.CopyComplete
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Debug\EventExchanger.dll
 D:\Users\mmspa\Documents\GitHub\EventExchanger\EventExchanger\obj\Debug\EventExchanger.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Debug\EventExchanger.csproj.AssemblyReference.cache
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Debug\EventExchanger.csproj.CoreCompileInputs.cache
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Debug\EventExchanger.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Debug\EventExchanger.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Debug\HidSharp.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Debug\HidSharp.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Debug\HidSharp.xml
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Debug\EventExchanger.csproj.CopyComplete
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Debug\EventExchanger.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Debug\EventExchanger.pdb

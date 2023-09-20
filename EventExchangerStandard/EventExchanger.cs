@@ -1,4 +1,4 @@
-﻿#define usingPython
+﻿#undef usingPython
 #if usingPython
 using Python.Runtime;
 #endif
@@ -107,7 +107,7 @@ namespace ID
 
         private static IEnumerable<HidDevice> HIDdeviceList;
         private static HidDevice device = null;
-        private const string _Version = "0.99x static";
+        private const string _Version = "0.99x2 static";
         private static readonly char[] AxisId = new char[] { 'X', 'Y', 'Z', 'A', 'B' };
 
         // ===========================================================================================

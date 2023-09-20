@@ -1,7 +1,8 @@
 
 % Put the three (3) dll's in the current directory for the task!
 warning ('off', 'MATLAB:NET:AddAssembly:nameConflict');
-NET.addAssembly([pwd '\EventExchanger.dll']);
+asm = NET.addAssembly([pwd '\EventExchanger.dll']);
+import ID.*
 warning ('on', 'MATLAB:NET:AddAssembly:nameConflict');
 
 % the needed dll are: 
@@ -10,7 +11,7 @@ warning ('on', 'MATLAB:NET:AddAssembly:nameConflict');
 % HidSharp.DeviceHelpers.dll
 
 % Create and start the object
-EE = ID.EventExchanger;
+EE = ID.EventExchangerLister;
 EE.Start();
 
 % if multiple EVT-2s are connected add a serialnumber as parameter to start
