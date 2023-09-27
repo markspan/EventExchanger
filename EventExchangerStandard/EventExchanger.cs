@@ -1,4 +1,4 @@
-﻿#undef usingPython
+﻿#define usingPython
 #if usingPython
 using Python.Runtime;
 #endif
@@ -20,7 +20,7 @@ namespace ID
         // Constants to define command-codes given to connected EventExchanger via USB port.                                     
         // ===================================================================================
         // ===================================================================================
-        private static readonly object EventBufferLock = new object();
+        private static readonly object EventBufferLock = new();
         private const byte CLEAROUTPUTPORT = 0;   // 0x00
         private const byte SETOUTPUTPORT = 1;   // 0x01
         private const byte SETOUTPUTLINES = 2;   // 0x02
@@ -70,7 +70,7 @@ namespace ID
             public double oldval { get; set; }
             public double newval { get; set; }
 
-            public override string ToString() => $"({oldval}, {newval})";
+            public override readonly string ToString() => $"({oldval}, {newval})";
 #if usingPython
             public PyTuple ToTuple()
             {
@@ -141,7 +141,7 @@ namespace ID
         // ===========================================================================================
         {
             HIDdeviceList = list.GetHidDevices().ToArray();
-            List<string> ProductNames = new List<string>();
+            List<string> ProductNames = new();
             foreach (HidDevice idev in HIDdeviceList)
             {
                 try

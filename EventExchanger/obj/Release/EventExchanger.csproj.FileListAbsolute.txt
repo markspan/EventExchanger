@@ -63,3 +63,6 @@ C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\
 C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.csproj.CopyComplete
 C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.dll
 C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\obj\Release\EventExchanger.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\Python.Runtime.dll
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\Python.Runtime.pdb
+C:\Users\P154492\Documents\GitHub\Charmeleon2\EventExchanger\EventExchanger\bin\Release\Python.Runtime.xml

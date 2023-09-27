@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Reference Include="Python.Runtime">
-      <HintPath>..\EventExchanger\bin\Debug\Python.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\Anaconda3\Lib\site-packages\pythonnet\runtime\Python.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
 

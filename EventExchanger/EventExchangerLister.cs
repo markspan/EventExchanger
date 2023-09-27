@@ -1,8 +1,9 @@
-﻿//#define usingpython
+﻿#define usingpython
 using HidSharp;
 using HidSharp.Reports;
 #if usingpython
 using Python.Runtime;
+using System.Numerics;
 #endif
 using System;
 using System.Collections.Generic;
